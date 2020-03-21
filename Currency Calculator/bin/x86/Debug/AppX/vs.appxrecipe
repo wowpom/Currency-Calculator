@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-20T17:15:03.243</Modified>
+      <Modified>2020-03-21T05:30:25.656</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\bin\x86\Debug\Currency Calculator.exe">
       <PackagePath>entrypoint\Currency Calculator.exe</PackagePath>
-      <Modified>2020-03-20T17:15:02.858</Modified>
+      <Modified>2020-03-21T05:30:23.564</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kialot\.nuget\packages\documentformat.openxml\2.10.1\lib\netstandard1.3\DocumentFormat.OpenXml.dll">
       <PackagePath>DocumentFormat.OpenXml.dll</PackagePath>
@@ -590,7 +590,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\bin\x86\Debug\Core\Currency Calculator.exe">
       <PackagePath>Currency Calculator.exe</PackagePath>
-      <Modified>2020-03-20T17:15:03.228</Modified>
+      <Modified>2020-03-21T05:30:25.602</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

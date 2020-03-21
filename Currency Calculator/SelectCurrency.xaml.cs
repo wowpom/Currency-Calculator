@@ -20,13 +20,7 @@ namespace Currency_Calculator
                 var button = new Button();
                 button.Width = 360;
                 button.Height = 32;
-                foreach (var valuta in mp.Valuta)
-                {
-                    if (valuta.Name == val.Name)
-                        button.Content = button.Content + " (Выбрано)";
-                    else
-                        button.Content = val.Name;
-                }
+                button.Content = val.Name;
                 button.Margin=new Thickness(0,10,0,0);
                 
                 button.HorizontalAlignment=HorizontalAlignment.Center;
