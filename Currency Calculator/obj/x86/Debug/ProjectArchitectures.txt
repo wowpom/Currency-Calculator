@@ -1,0 +1,1 @@
+C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\Currency Calculator.csproj;x86
