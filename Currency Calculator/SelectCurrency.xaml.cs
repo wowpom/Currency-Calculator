@@ -15,18 +15,7 @@ namespace Currency_Calculator
         public SelectCurrency()
         {
             this.InitializeComponent();
-            foreach (var val in mp.AllValuta)
-            {
-                var button = new Button();
-                button.Width = 360;
-                button.Height = 32;
-                button.Content = val.Name;
-                button.Margin=new Thickness(0,10,0,0);
-                
-                button.HorizontalAlignment=HorizontalAlignment.Center;
-                button.Click += ClickBut;
-                SP.Children.Add(button);
-            }
+            
         }
         private void ClickBut(object sender, RoutedEventArgs e)
         {
@@ -37,6 +26,19 @@ namespace Currency_Calculator
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             variables = (Variables)e.Parameter;
+            
+            foreach (var val in variables.AllValuta)
+            {
+                var button = new Button();
+                button.Width = 360;
+                button.Height = 32;
+                button.Content = val.Name;
+                button.Margin = new Thickness(0, 10, 0, 0);
+
+                button.HorizontalAlignment = HorizontalAlignment.Center;
+                button.Click += ClickBut;
+                SP.Children.Add(button);
+            }
             base.OnNavigatedTo(e);
         }
     }
