@@ -65,7 +65,7 @@ namespace Currency_Calculator
             if (tb.Text != "")
             {
                 if (char.IsDigit(Convert.ToChar(tb.Text.Substring(tb.Text.Length - 1, 1))) ||
-                    (tb.Text.Substring(tb.Text.Length - 1, 1) == "," && !tb.Text.Substring(0, tb.Text.Length - 1).Contains(",")))
+                    (tb.Text.Substring(tb.Text.Length - 1, 1) == "," && !tb.Text.Substring(0, tb.Text.Length - 1).Contains(",")) && TextBoxSec.Text != "")
                 {
                     if (tb.Name == "TextBoxOne")
                     {
