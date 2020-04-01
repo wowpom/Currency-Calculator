@@ -483,3 +483,8 @@ C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\obj\x86\Debug\re
 C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\obj\x86\Debug\resources.en.resfiles.intermediate
 C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\obj\x86\Debug\Currency Calculator.csproj.CoreCompileInputs.cache
+C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\bin\x86\Debug\CheckingConnection.xbf
+C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\obj\x86\Debug\CheckingConnection.g.i.cs
+C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\obj\x86\Debug\CheckingConnection.g.cs
+C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\obj\x86\Debug\CheckingConnection.xaml
+C:\Users\Kialot\Desktop\Currency Calculator\Currency Calculator\obj\x86\Debug\CheckingConnection.xbf

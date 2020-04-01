@@ -12,6 +12,7 @@ namespace Currency_Calculator
         //public Currency[] AllValuta = new Currency[0];
         public int NumberHyperLink;
         public Variables variables = new Variables();
+        private Boolean CheckingConnectionBool = true;
 
         public MainPage()
         {
@@ -29,17 +30,24 @@ namespace Currency_Calculator
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
-        {   if(e.Parameter == "")
+        {   if( e.Parameter == null)
             {
-                variables.numb = 0;
-                variables.AllValuta = Currency.CreateValuta(variables.AllValuta);
-
-                foreach (var val in variables.AllValuta)
+                try
                 {
-                    if (val.Name == "Российский рубль")
-                        variables.Valuta[0] = val;
-                    else if (val.Name == "Доллар США")
-                        variables.Valuta[1] = val;
+                    variables.numb = 0;
+                    variables.AllValuta = Currency.CreateValuta(variables.AllValuta);
+
+                    foreach (var val in variables.AllValuta)
+                    {
+                        if (val.Name == "Российский рубль")
+                            variables.Valuta[0] = val;
+                        else if (val.Name == "Доллар США")
+                            variables.Valuta[1] = val;
+                    }
+                }
+                catch {
+                    CheckingConnectionBool = false;
+                    
                 }
             }
             else 
@@ -55,6 +63,7 @@ namespace Currency_Calculator
                 }
                 TextBlockOne.Text = variables.Valuta[0].CharCode;
                 TextBlockSec.Text = variables.Valuta[1].CharCode;
+                CheckingConnectionBool = true;
             }
             base.OnNavigatedTo(e);
         }
@@ -88,9 +97,13 @@ namespace Currency_Calculator
                 TextBoxSec.Text = "";
             else
                 TextBoxOne.Text = "";
-        }   
+        }
 
-
-        
+        private void Loaded(object sender, RoutedEventArgs e)
+        {   
+            if(CheckingConnectionBool == false) { 
+            this.Frame.Navigate(typeof(CheckingConnection));
+            }
+        }
     }
 }

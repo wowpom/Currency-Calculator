@@ -132,17 +132,19 @@ namespace Currency_Calculator.Currency_Calculator_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
-            _typeNameTable[0] = "Currency_Calculator.MainPage";
+            _typeNameTable = new string[5];
+            _typeNameTable[0] = "Currency_Calculator.CheckingConnection";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Currency_Calculator.SelectCurrency";
+            _typeNameTable[3] = "Currency_Calculator.MainPage";
+            _typeNameTable[4] = "Currency_Calculator.SelectCurrency";
 
-            _typeTable = new global::System.Type[4];
-            _typeTable[0] = typeof(global::Currency_Calculator.MainPage);
+            _typeTable = new global::System.Type[5];
+            _typeTable[0] = typeof(global::Currency_Calculator.CheckingConnection);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Currency_Calculator.SelectCurrency);
+            _typeTable[3] = typeof(global::Currency_Calculator.MainPage);
+            _typeTable[4] = typeof(global::Currency_Calculator.SelectCurrency);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -177,8 +179,9 @@ namespace Currency_Calculator.Currency_Calculator_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::Currency_Calculator.MainPage(); }
-        private object Activate_3_SelectCurrency() { return new global::Currency_Calculator.SelectCurrency(); }
+        private object Activate_0_CheckingConnection() { return new global::Currency_Calculator.CheckingConnection(); }
+        private object Activate_3_MainPage() { return new global::Currency_Calculator.MainPage(); }
+        private object Activate_4_SelectCurrency() { return new global::Currency_Calculator.SelectCurrency(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -190,9 +193,9 @@ namespace Currency_Calculator.Currency_Calculator_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  Currency_Calculator.MainPage
+            case 0:   //  Currency_Calculator.CheckingConnection
                 userType = new global::Currency_Calculator.Currency_Calculator_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+                userType.Activator = Activate_0_CheckingConnection;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -205,9 +208,16 @@ namespace Currency_Calculator.Currency_Calculator_XamlTypeInfo
                 xamlType = new global::Currency_Calculator.Currency_Calculator_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Currency_Calculator.SelectCurrency
+            case 3:   //  Currency_Calculator.MainPage
                 userType = new global::Currency_Calculator.Currency_Calculator_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_SelectCurrency;
+                userType.Activator = Activate_3_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Currency_Calculator.SelectCurrency
+                userType = new global::Currency_Calculator.Currency_Calculator_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_SelectCurrency;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
