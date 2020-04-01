@@ -30,7 +30,7 @@ namespace Currency_Calculator
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
-        {   if( e.Parameter == null)
+        {   if(e.Parameter == "" || e.Parameter == null)
             {
                 try
                 {
