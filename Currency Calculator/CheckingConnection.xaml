@@ -10,7 +10,8 @@
 
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}">
         <Grid>
-            <Button Content="Button" Height="108" Margin="65,108,0,0" VerticalAlignment="Top" Width="255" Click="Button_Click"/>
+            <Button Content="Повторить попытку" Height="108" Margin="0,485,0,0" VerticalAlignment="Top" Width="288" Click="Button_Click" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="TB" HorizontalAlignment="Center" Height="132" Margin="0,33,0,0" Text="Проверьте интернет соединение и попробуйте ещё раз!" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" FontSize="25" FontWeight="Bold" TextAlignment="Center"/>
         </Grid>
 
     </Grid>

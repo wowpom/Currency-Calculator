@@ -30,7 +30,8 @@ namespace Currency_Calculator
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
-        {   if(e.Parameter == "" || e.Parameter == null)
+        {   
+            if(e.Parameter == "" || e.Parameter == null)
             {
                 try
                 {
@@ -101,9 +102,9 @@ namespace Currency_Calculator
 
         private void Loaded(object sender, RoutedEventArgs e)
         {   
-            if(CheckingConnectionBool == false) { 
-            this.Frame.Navigate(typeof(CheckingConnection));
-            }
+            if(CheckingConnectionBool == false)  
+                this.Frame.Navigate(typeof(CheckingConnection));
+            
         }
     }
 }

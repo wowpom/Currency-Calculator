@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -29,7 +30,17 @@ namespace Currency_Calculator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            try { 
+                using (var client = new HttpClient())
+                {
+                 var response = client.GetAsync("https://www.cbr-xml-daily.ru/daily_json.js").GetAwaiter().GetResult();
+                }
+                this.Frame.Navigate(typeof(MainPage));
+            }   
+            catch {
+                TB.Text = "Интернет всё ещё не работает! Проверьте интернет соединение и попробуйте ещё раз!";
+            }
+
         }
     }
 }
