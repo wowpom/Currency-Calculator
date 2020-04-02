@@ -13,6 +13,7 @@ namespace Currency_Calculator
         public String CharCode { get; set; }
         public String Name { get; set; }
         public double Value { get; set; }
+        public int Nominal { get; set; }
 
         public static Currency[] CreateValuta(Currency[] AllValuta)
         {
@@ -37,7 +38,8 @@ namespace Currency_Calculator
                 {
                     Name = Convert.ToString(val.Value[key: @"Name"]),
                     CharCode = Convert.ToString(val.Value[key: @"CharCode"]),
-                    Value = Convert.ToDouble(val.Value[key: @"Value"])
+                    Value = Convert.ToDouble(val.Value[key: @"Value"]),
+                    Nominal = Convert.ToInt32(val.Value[key: @"Nominal"])
                 };
             }
             Array.Resize(ref AllValuta, AllValuta.Length + 1);
@@ -45,7 +47,8 @@ namespace Currency_Calculator
             {
                 Name = "Российский рубль",
                 CharCode = "RUB",
-                Value = 1
+                Value = 1,
+                Nominal = 1
             };
             return AllValuta;
         }

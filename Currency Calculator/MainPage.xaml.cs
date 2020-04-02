@@ -79,12 +79,12 @@ namespace Currency_Calculator
                 {
                     if (tb.Name == "TextBoxOne")
                     {
-                        double result = variables.Valuta[0].Value / variables.Valuta[1].Value * Convert.ToDouble(TextBoxOne.Text);
+                        double result = Convert.ToDouble(TextBoxOne.Text) * variables.Valuta[1].Nominal / variables.Valuta[1].Value * variables.Valuta[0].Value / variables.Valuta[0].Nominal;
                         TextBoxSec.Text = result.ToString("F2");
                     }
                     else
                     {
-                        double result = variables.Valuta[1].Value / variables.Valuta[0].Value * Convert.ToDouble(TextBoxSec.Text);
+                        double result = Convert.ToDouble(TextBoxSec.Text) * variables.Valuta[0].Nominal / variables.Valuta[0].Value * variables.Valuta[1].Value / variables.Valuta[1].Nominal;
                         TextBoxOne.Text = result.ToString("F2");
                     }
                 }
