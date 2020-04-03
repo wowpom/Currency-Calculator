@@ -10,8 +10,8 @@
 
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}">
         <StackPanel x:Name="MainPageStackPanel">
-            <TextBox x:Name="TextBoxOne" Height="46" Text="" TextWrapping="Wrap" Width="126" HorizontalAlignment="Left" Margin="5,25,0,0" KeyUp="TextBoxSec_KeyUp"/>
-            <TextBox x:Name="TextBoxSec" Height="46" Text="" TextWrapping="Wrap" Width="126" HorizontalAlignment="Right" Margin="0,-46,5,0" KeyUp="TextBoxSec_KeyUp"/>
+            <TextBox x:Name="TextBoxOne" Height="46" Text="" TextWrapping="Wrap" Width="126" HorizontalAlignment="Left" Margin="5,25,0,0" KeyUp="TextBoxSec_KeyUp" PreviewKeyDown="TextBoxOne_PreviewKeyDown"/>
+            <TextBox x:Name="TextBoxSec" Height="46" Text="" TextWrapping="Wrap" Width="126" HorizontalAlignment="Right" Margin="0,-46,5,0" KeyUp="TextBoxSec_KeyUp" PreviewKeyDown="TextBoxOne_PreviewKeyDown"/>
             <TextBlock x:Name="TextBlockOne" Text="RU" TextWrapping="Wrap" Height="44" Width="120" HorizontalAlignment="Left" Margin="10,10,0,0" FontFamily="Arial Black" FontSize="36" TextAlignment="Center"/>
             <TextBlock x:Name="TextBlockSec" Text="USD" TextWrapping="Wrap" Height="44" Width="120" FontFamily="Arial Black" FontSize="36" TextAlignment="Center" Margin="0,-44,10,0" HorizontalAlignment="Right"/>
             <HyperlinkButton x:Name="HyperButtonOne" Content="Изменить Валюту" Margin="10,0,0,0" Foreground="#FF0E0066" Click="HyperlinkButton_Click"/>

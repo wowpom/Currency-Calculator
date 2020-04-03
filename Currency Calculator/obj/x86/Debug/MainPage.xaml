@@ -10,8 +10,8 @@
 
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}">
         <StackPanel x:ConnectionId='2' x:Name="MainPageStackPanel">
-            <TextBox x:ConnectionId='3' x:Name="TextBoxOne" Height="46" Text="" TextWrapping="Wrap" Width="126" HorizontalAlignment="Left" Margin="5,25,0,0"                         />
-            <TextBox x:ConnectionId='4' x:Name="TextBoxSec" Height="46" Text="" TextWrapping="Wrap" Width="126" HorizontalAlignment="Right" Margin="0,-46,5,0"                         />
+            <TextBox x:ConnectionId='3' x:Name="TextBoxOne" Height="46" Text="" TextWrapping="Wrap" Width="126" HorizontalAlignment="Left" Margin="5,25,0,0"                                                                    />
+            <TextBox x:ConnectionId='4' x:Name="TextBoxSec" Height="46" Text="" TextWrapping="Wrap" Width="126" HorizontalAlignment="Right" Margin="0,-46,5,0"                                                                    />
             <TextBlock x:ConnectionId='5' x:Name="TextBlockOne" Text="RU" TextWrapping="Wrap" Height="44" Width="120" HorizontalAlignment="Left" Margin="10,10,0,0" FontFamily="Arial Black" FontSize="36" TextAlignment="Center"/>
             <TextBlock x:ConnectionId='6' x:Name="TextBlockSec" Text="USD" TextWrapping="Wrap" Height="44" Width="120" FontFamily="Arial Black" FontSize="36" TextAlignment="Center" Margin="0,-44,10,0" HorizontalAlignment="Right"/>
             <HyperlinkButton x:ConnectionId='7' x:Name="HyperButtonOne" Content="Изменить Валюту" Margin="10,0,0,0" Foreground="#FF0E0066"                              />
