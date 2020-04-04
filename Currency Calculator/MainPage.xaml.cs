@@ -75,15 +75,18 @@ namespace Currency_Calculator
                 
                 if (tb.Name == "TextBoxOne")
                 {
-                    double result = Convert.ToDouble(TextBoxOne.Text) * variables.Valuta[1].Nominal / variables.Valuta[1].Value * variables.Valuta[0].Value / variables.Valuta[0].Nominal;
-                    TextBoxSec.Text = result.ToString("F2");
+                    TextBoxSec.Text = variables.Сalculation(1, Convert.ToDouble(TextBoxOne.Text) , variables).ToString("F2");
                 }
                 else
                 {
-                    double result = Convert.ToDouble(TextBoxSec.Text) * variables.Valuta[0].Nominal / variables.Valuta[0].Value * variables.Valuta[1].Value / variables.Valuta[1].Nominal;
-                    TextBoxOne.Text = result.ToString("F2");
+                    TextBoxOne.Text = variables.Сalculation(2, Convert.ToDouble(TextBoxSec.Text), variables).ToString("F2");
                 }
                
+            }
+            else
+            {
+                TextBoxSec.Text = "";
+                TextBoxOne.Text = "";
             }
         }
         private void Loaded(object sender, RoutedEventArgs e)

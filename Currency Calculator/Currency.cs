@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Vml;
 using Newtonsoft.Json.Linq;
 
 namespace Currency_Calculator
@@ -52,6 +53,8 @@ namespace Currency_Calculator
             };
             return AllValuta;
         }
+
+        
     }
     
     
