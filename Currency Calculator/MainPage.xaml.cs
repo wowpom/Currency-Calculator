@@ -83,6 +83,8 @@ namespace Currency_Calculator
                 }
                
             }
+            else if(tb.Text == "0")
+                tb.Text = tb.Text + ",";
             else
             {
                 TextBoxSec.Text = "";
@@ -98,11 +100,11 @@ namespace Currency_Calculator
         private void TextBoxOne_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            if (!(e.KeyStatus.ScanCode >= 2 && e.KeyStatus.ScanCode <= 11))
+            if (!((int)e.Key >= 48 && (int)e.Key <= 57) && !((int)e.Key>= 96 && (int)e.Key <= 105))
                 e.Handled = true;
             if (e.KeyStatus.ScanCode == 14)
                 e.Handled = false;
-            if ((int)e.Key == 188 && !(tb.Text.Contains(",")) && tb.Text != "") 
+            if (((int)e.Key == 188 || (int)e.Key == 110) && !(tb.Text.Contains(",")) && tb.Text != "") 
             { 
                 tb.Text = tb.Text + ",";
                 tb.SelectionStart = tb.Text.Length;
