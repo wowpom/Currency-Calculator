@@ -8,28 +8,14 @@ namespace Currency_Calculator
 {
     public sealed partial class MainPage : Page
     {
-        public Currency[] Valuta = new Currency[2];
-        public Currency[] AllValuta = new Currency[0];
         public int NumberHyperLink;
         public Variables variables = new Variables();
+        private Boolean CheckingConnectionBool = true;
 
         public MainPage()
         {
             this.InitializeComponent();
-            variables.Valuta = Valuta;
-            variables.numb = 0;
-            AllValuta=Currency.CreateValuta(AllValuta);
-
-            foreach (var val in AllValuta)
-            {
-                if (val.Name == "Российский рубль")
-                    Valuta[0] = val;
-                else if (val.Name == "Доллар США")
-                    Valuta[1] = val;
-            }
         }
-        
-
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
@@ -42,23 +28,41 @@ namespace Currency_Calculator
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
-        {   if(e.Parameter == "")
+        {   
+            if(e.Parameter == "" || e.Parameter == null)
             {
-                Variables variables = new Variables();
+                try
+                {
+                    variables.numb = 0;
+                    variables.AllValuta = Currency.CreateValuta(variables.AllValuta);
+
+                    foreach (var val in variables.AllValuta)
+                    {
+                        if (val.Name == "Российский рубль")
+                            variables.Valuta[0] = val;
+                        else if (val.Name == "Доллар США")
+                            variables.Valuta[1] = val;
+                    }
+                }
+                catch {
+                    CheckingConnectionBool = false;
+                    
+                }
             }
             else 
             { 
                variables = (Variables)e.Parameter;
 
-                foreach (var val in AllValuta)
+                foreach (var val in variables.AllValuta)
                 {
                     if (val.Name == variables.NewValuta)
                     {
-                        Valuta[variables.numb - 1] = val;
+                        variables.Valuta[variables.numb - 1] = val;
                     }
                 }
-                TextBlockOne.Text = Valuta[0].CharCode;
-                TextBlockSec.Text = Valuta[1].CharCode;
+                TextBlockOne.Text = variables.Valuta[0].CharCode;
+                TextBlockSec.Text = variables.Valuta[1].CharCode;
+                CheckingConnectionBool = true;
             }
             base.OnNavigatedTo(e);
         }
@@ -68,33 +72,44 @@ namespace Currency_Calculator
             TextBox tb = (TextBox)sender;
             if (tb.Text != "")
             {
-                if (char.IsDigit(Convert.ToChar(tb.Text.Substring(tb.Text.Length - 1, 1))) ||
-                    (tb.Text.Substring(tb.Text.Length - 1, 1) == "," && !tb.Text.Substring(0, tb.Text.Length - 1).Contains(",")))
+                
+                if (tb.Name == "TextBoxOne")
                 {
-                    if (tb.Name == "TextBoxOne")
-                    {
-                        double result = Valuta[0].Value / Valuta[1].Value * Convert.ToDouble(TextBoxOne.Text);
-                        TextBoxSec.Text = result.ToString("F2");
-                    }
-                    else
-                    {
-                        double result = Valuta[1].Value / Valuta[0].Value * Convert.ToDouble(TextBoxSec.Text);
-                        TextBoxOne.Text = result.ToString("F2");
-                    }
+                    TextBoxSec.Text = variables.Сalculation(1, Convert.ToDouble(TextBoxOne.Text) , variables).ToString("F2");
                 }
                 else
                 {
-                    tb.Text = tb.Text.Remove(tb.Text.Length - 1);
-                    tb.SelectionStart = tb.Text.Length;
+                    TextBoxOne.Text = variables.Сalculation(2, Convert.ToDouble(TextBoxSec.Text), variables).ToString("F2");
                 }
+               
             }
-            else if (tb.Name == "TextBoxOne")
-                TextBoxSec.Text = "";
+            else if(tb.Text == "0")
+                tb.Text = tb.Text + ",";
             else
+            {
+                TextBoxSec.Text = "";
                 TextBoxOne.Text = "";
-        }   
+            }
+        }
+        private void Loaded(object sender, RoutedEventArgs e)
+        {   
+            if(CheckingConnectionBool == false)  
+                this.Frame.Navigate(typeof(CheckingConnection));
+            
+        }
+        private void TextBoxOne_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (!((int)e.Key >= 48 && (int)e.Key <= 57) && !((int)e.Key>= 96 && (int)e.Key <= 105))
+                e.Handled = true;
+            if (e.KeyStatus.ScanCode == 14)
+                e.Handled = false;
+            if (((int)e.Key == 188 || (int)e.Key == 110) && !(tb.Text.Contains(",")) && tb.Text != "") 
+            { 
+                tb.Text = tb.Text + ",";
+                tb.SelectionStart = tb.Text.Length;
+            }
 
-
-        
+        }
     }
 }
